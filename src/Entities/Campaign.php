@@ -111,7 +111,7 @@ class Campaign
     /**
      * @param string $name
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -127,7 +127,7 @@ class Campaign
     /**
      * @param boolean $status
      */
-    public function setStatus(bool $status)
+    public function setStatus($status)
     {
         $this->status = $status;
     }
@@ -143,7 +143,7 @@ class Campaign
     /**
      * @param int $goal
      */
-    public function setGoal(int $goal)
+    public function setGoal($goal)
     {
         $this->goal = $goal;
     }
@@ -159,7 +159,7 @@ class Campaign
     /**
      * @param int $impression
      */
-    public function setImpression(int $impression)
+    public function setImpression($impression)
     {
         $this->impression = $impression;
     }

@@ -75,7 +75,7 @@ class Restriction
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -83,7 +83,7 @@ class Restriction
     /**
      * @param string $type
      */
-    public function setType(string $type)
+    public function setType($type)
     {
         $this->type = $type;
     }
@@ -99,7 +99,7 @@ class Restriction
     /**
      * @param string $first_value
      */
-    public function setFirstValue(string $first_value)
+    public function setFirstValue($first_value)
     {
         $this->first_value = $first_value;
     }
@@ -115,7 +115,7 @@ class Restriction
     /**
      * @param string $second_value
      */
-    public function setSecondValue(string $second_value)
+    public function setSecondValue($second_value)
     {
         $this->second_value = $second_value;
     }
