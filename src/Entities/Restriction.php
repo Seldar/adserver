@@ -67,7 +67,7 @@ class Restriction
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -91,7 +91,7 @@ class Restriction
     /**
      * @return string
      */
-    public function getFirstValue(): string
+    public function getFirstValue()
     {
         return $this->first_value;
     }
@@ -107,7 +107,7 @@ class Restriction
     /**
      * @return string
      */
-    public function getSecondValue(): string
+    public function getSecondValue()
     {
         return $this->second_value;
     }

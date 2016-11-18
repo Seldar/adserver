@@ -95,7 +95,7 @@ class Campaign
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -103,7 +103,7 @@ class Campaign
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -119,7 +119,7 @@ class Campaign
     /**
      * @return boolean
      */
-    public function isStatus(): bool
+    public function isStatus()
     {
         return $this->status;
     }
@@ -135,7 +135,7 @@ class Campaign
     /**
      * @return int
      */
-    public function getGoal(): int
+    public function getGoal()
     {
         return $this->goal;
     }
@@ -151,7 +151,7 @@ class Campaign
     /**
      * @return int
      */
-    public function getImpression(): int
+    public function getImpression()
     {
         return $this->impression;
     }
