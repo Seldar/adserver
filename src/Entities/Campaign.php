@@ -184,7 +184,7 @@ class Campaign
     /**
      * @return ArrayCollection
      */
-    public function getRestrictions(): ArrayCollection
+    public function getRestrictions()
     {
         return $this->restrictions;
     }

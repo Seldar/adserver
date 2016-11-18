@@ -123,7 +123,7 @@ class Restriction
     /**
      * @return Campaign
      */
-    public function getCampaign(): Campaign
+    public function getCampaign()
     {
         return $this->campaign;
     }
