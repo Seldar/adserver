@@ -23,6 +23,7 @@ class CampaignControllerTest extends DatabaseTestCase
         $controller = new CampaignController();
         $banner = new Banner();
         $banner->setAll(['name' => "testName", 'caption' => "testCaption", "click_url" => "testClickUrl", "image_file" => "testImageFile", "size_x" => 100, "size_y" => 100]);
+
         $restriction = new Restriction();
         $restriction->setAll(['type' => 'interval', 'first_value' => '2016-11-18 10:00:00', 'second_value' => '2016-11-20 10:00:00']);
 
