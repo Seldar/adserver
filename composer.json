@@ -1,0 +1,23 @@
+{
+  "name": "Seldar/adserver",
+  "description": "a sample adserver assignment",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Volkan Ulukut",
+      "email": "arthan@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "phpunit/phpunit": "5.6.3",
+    "phpunit/dbunit": ">=1.2",
+    "doctrine/orm": "2.5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Adserver\\": "src/"
+    }
+  }
+}
