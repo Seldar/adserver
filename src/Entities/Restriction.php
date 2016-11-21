@@ -15,7 +15,7 @@ namespace Adserver\Entities;
  *
  * @package Adserver\Entities
  *
- * @entity @Table(name="restrictions")
+ * @entity(repositoryClass="Adserver\Repositories\RestrictionRepository") @Table(name="restrictions")
  */
 class Restriction
 {
@@ -135,13 +135,5 @@ class Restriction
     {
         $this->campaign = $campaign;
     }
-
-    public function setAll(array $data)
-    {
-        $this->setType($data['type']);
-        $this->setFirstValue($data['first_value']);
-        $this->setSecondValue($data['second_value']);
-    }
-
 
 }

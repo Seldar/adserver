@@ -15,7 +15,7 @@ namespace Adserver\Entities;
  *
  * @package Adserver\Entities
  *
- * @Entity @Table(name="banners")
+ * @Entity(repositoryClass="Adserver\Repositories\BannerRepository") @Table(name="banners")
  */
 class Banner
 {
@@ -221,21 +221,6 @@ class Banner
         $this->image_file = $image_file;
     }
 
-    /**
-     * Setter for all columns with an array
-     *
-     * @param array $data
-     */
-    public function setAll(array $data)
-    {
-        $this->setName($data["name"]);
-        $this->setCaption($data["caption"]);
-        $this->setClickUrl($data["click_url"]);
-        $this->setImageFile($data["image_file"]);
-        $this->setSizeX($data["size_x"]);
-        $this->setSizeY($data["size_y"]);
-
-    }
     /**
      * @return Campaign
      */

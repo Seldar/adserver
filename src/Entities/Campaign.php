@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @package Adserver\Entities
  *
- * @entity @Table(name="campaigns")
+ * @entity(repositoryClass="Adserver\Repositories\CampaignRepository") @Table(name="campaigns")
  */
 class Campaign
 {
@@ -79,7 +79,7 @@ class Campaign
      *
      * @var Restriction[]
      *
-     * @oneToMany(targetEntity="Restriction", mappedBy="restriction",cascade={"persist"})
+     * @oneToMany(targetEntity="Restriction", mappedBy="campaign",cascade={"persist"})
      **/
     protected $restrictions;
 
@@ -175,14 +175,16 @@ class Campaign
     /**
      * @param Banner $banner
      */
-    public function addBanner($banner)
+    public function addBanner(Banner $banner = null)
     {
-        $banner->setCampaign($this);
-        $this->banners[] = $banner;
+        if (is_object($banner)) {
+            $banner->setCampaign($this);
+            $this->banners[] = $banner;
+        }
     }
 
     /**
-     * @return ArrayCollection
+     * @return mixed
      */
     public function getRestrictions()
     {
@@ -192,19 +194,11 @@ class Campaign
     /**
      * @param Restriction $restriction
      */
-    public function addRestriction(Restriction $restriction)
+    public function addRestriction(Restriction $restriction = null)
     {
-        $restriction->setCampaign($this);
-        $this->restrictions[] = $restriction;
+        if ($restriction) {
+            $restriction->setCampaign($this);
+            $this->restrictions[] = $restriction;
+        }
     }
-
-    public function setAll(array $data)
-    {
-        $this->setName($data['name']);
-        $this->setStatus($data['status']);
-        $this->setGoal($data['goal']);
-        $this->setImpression($data['impression']);
-    }
-
-
 }

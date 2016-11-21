@@ -9,16 +9,23 @@
 
 namespace Adserver\Controllers;
 
-use Adserver\Entities\Banner;
-
 class BannerController extends Controller
 {
-    public function save(array $data)
+    public function post(array $data)
     {
-        $banner = new Banner();
-        $banner->setAll($data);
+        $this->entityManager->getRepository('Adserver\Entities\Banner')->save($data);
+    }
 
-        $this->entityManager->persist($banner);
-        $this->entityManager->flush();
+    public function get(array $input,$key)
+    {
+        if($key)
+        {
+            $data = $this->entityManager->getRepository('Adserver\Entities\Banner')->findOneBy(["id" => $key]);
+            return ["bannerView.tpl.php",$data];
+        }
+        else
+        {
+            return "bannerForm.tpl.php";
+        }
     }
 }

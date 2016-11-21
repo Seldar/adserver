@@ -15,7 +15,11 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory>./src/Views</directory>
+            </exclude>
         </whitelist>
+
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
