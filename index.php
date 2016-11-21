@@ -13,7 +13,7 @@ $rest = new \Adserver\Controllers\RESTControler();
 $view = $rest->route();
 if (is_array($view)) {
     $data = $view[1];
-    include "src/Views/" . $view[0];
+    include "views/" . $view[0];
 } elseif ($view) {
-    include "src/Views/" . $view;
+    include "views/" . $view;
 }
