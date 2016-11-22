@@ -13,8 +13,22 @@ namespace Adserver\Repositories;
 use Doctrine\ORM\EntityRepository;
 use Adserver\Entities\Restriction;
 
+/**
+ * Class RestrictionRepository
+ *
+ * Repository to handle database operations through entities
+ *
+ * @package Adserver\Repositories
+ */
 class RestrictionRepository extends EntityRepository
 {
+    /**
+     * Set and persist Restriction entity in the database
+     *
+     * @param array $data
+     *
+     * @return Restriction
+     */
     public function save(array $data)
     {
         $restriction = $this->setAll($data);
@@ -39,6 +53,11 @@ class RestrictionRepository extends EntityRepository
         return $restriction;
     }
 
+    /**
+     * Set and persist Restriction entity
+     *
+     * @param array $data
+     */
     public function edit(array $data)
     {
         $restriction = $this->_em->getRepository('Adserver\Entities\Restriction')->findOneBy(["id" => $data['id']]);
@@ -52,6 +71,10 @@ class RestrictionRepository extends EntityRepository
         $this->_em->flush();
     }
 
+    /**
+     * @param Restriction $restriction
+     * @return bool
+     */
     public function evaluate(Restriction $restriction)
     {
         $weekday = date("w") + 1;

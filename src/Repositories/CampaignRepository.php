@@ -13,9 +13,24 @@ namespace Adserver\Repositories;
 use Doctrine\ORM\EntityRepository;
 use Adserver\Entities\Campaign;
 use Adserver\Entities\Banner;
+use Adserver\Entities\Restriction;
 
+/**
+ * Class CampaignRepository
+ *
+ * Repository to handle database operations through entities
+ *
+ * @package Adserver\Repositories
+ */
 class CampaignRepository extends EntityRepository
 {
+    /**
+     * Set and persist Campaign entity in the database
+     *
+     * @param array $data
+     * @param Restriction[] $restrictions
+     * @param Banner[] $banners
+     */
     public function save(array $data, array $restrictions = [], array $banners = [])
     {
 
@@ -34,6 +49,13 @@ class CampaignRepository extends EntityRepository
 
     }
 
+    /**
+     * Setter for all columns with an array
+     *
+     * @param array $data
+     *
+     * @return Campaign
+     */
     public function setAll(array $data)
     {
         $campaign = new Campaign();
@@ -44,6 +66,11 @@ class CampaignRepository extends EntityRepository
         return $campaign;
     }
 
+    /**
+     * Set and persist Campaign entity
+     *
+     * @param array $data
+     */
     public function edit(array $data)
     {
         $campaign = $this->_em->getRepository('Adserver\Entities\Campaign')->findOneBy(["id" => $data['id']]);
@@ -57,6 +84,14 @@ class CampaignRepository extends EntityRepository
         $this->_em->flush();
     }
 
+    /**
+     * Get the valid banners from valid campaigns
+     *
+     * @param string $contentUnit
+     * @param array|null $sizeRanges
+     *
+     * @return string
+     */
     public function getValidBanners($contentUnit, array $sizeRanges = null)
     {
         $qb = $this->_em->createQueryBuilder();
@@ -69,20 +104,26 @@ class CampaignRepository extends EntityRepository
         $query = $qb->getQuery();
         $result = $query->getArrayResult();
         $bannerCollection = $this->checkFilters($result, $sizeRanges);
-        if(count($bannerCollection) > 0) {
+        if (count($bannerCollection) > 0) {
             $banner = $this->pickBanner($bannerCollection);
             $this->increaseImpression($banner);
 
             return $this->createHTML($banner, $contentUnit);
 
-        }
-        else
-        {
+        } else {
             return "<div>No banners found!</div>";
         }
     }
 
-    public function checkFilters($result, array $sizeRanges = null)
+    /**
+     * Checks campaign restrictions and populate a banner collection from valid banners
+     *
+     * @param array $result
+     * @param array|null $sizeRanges
+     *
+     * @return Banner[]
+     */
+    public function checkFilters(array $result, array $sizeRanges = null)
     {
         $bannerCollection = [];
         foreach ($result as $campaign) {
@@ -109,6 +150,11 @@ class CampaignRepository extends EntityRepository
         return $bannerCollection;
     }
 
+    /**
+     * Increase impression of the banner by one
+     *
+     * @param Banner $banner
+     */
     public function increaseImpression(Banner $banner)
     {
         $campaign = $banner->getCampaign();
@@ -117,11 +163,26 @@ class CampaignRepository extends EntityRepository
         $this->_em->flush();
     }
 
-    public function pickBanner($bannerCollection)
+    /**
+     * Pick a random banner from a Banner Collection
+     *
+     * @param Banner[] $bannerCollection
+     *
+     * @return Banner
+     */
+    public function pickBanner(array $bannerCollection)
     {
         return $bannerCollection[array_rand($bannerCollection)];
     }
 
+    /**
+     * Create HTML representation of the Banner entity
+     *
+     * @param Banner $banner
+     * @param string $contentUnit
+     *
+     * @return string
+     */
     public function createHTML(Banner $banner, $contentUnit)
     {
         return '<a href="' . $banner->getClickUrl() . '">

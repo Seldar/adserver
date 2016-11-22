@@ -222,6 +222,8 @@ class Banner
     }
 
     /**
+     * Getter for Campaign reference
+     *
      * @return Campaign
      */
     public function getCampaign()
@@ -230,6 +232,8 @@ class Banner
     }
 
     /**
+     * Setter for Campaign reference
+     *
      * @param Campaign $campaign
      */
     public function setCampaign(Campaign $campaign)

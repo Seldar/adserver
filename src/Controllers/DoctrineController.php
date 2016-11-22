@@ -12,8 +12,20 @@ namespace Adserver\Controllers;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+/**
+ * Class DoctrineController
+ *
+ * Class to bootstrap doctrine entity manager
+ *
+ * @package Adserver\Controllers
+ */
 class DoctrineController
 {
+    /**
+     * Sets up and returns Doctrine EntityManager
+     *
+     * @return EntityManager
+     */
     public static function get()
     {
         // Create a simple "default" Doctrine ORM configuration for Annotations

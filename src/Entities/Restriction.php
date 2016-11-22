@@ -65,6 +65,8 @@ class Restriction
     protected $campaign;
 
     /**
+     * Getter for id
+     *
      * @return int
      */
     public function getId()
@@ -73,6 +75,8 @@ class Restriction
     }
 
     /**
+     * Getter for type
+     *
      * @return string
      */
     public function getType()
@@ -81,6 +85,8 @@ class Restriction
     }
 
     /**
+     * Setter for type
+     *
      * @param string $type
      */
     public function setType($type)
@@ -89,6 +95,8 @@ class Restriction
     }
 
     /**
+     * Getter for first_value
+     *
      * @return string
      */
     public function getFirstValue()
@@ -97,6 +105,8 @@ class Restriction
     }
 
     /**
+     * Setter for first_value
+     *
      * @param string $first_value
      */
     public function setFirstValue($first_value)
@@ -105,6 +115,8 @@ class Restriction
     }
 
     /**
+     * Getter for second_value
+     *
      * @return string
      */
     public function getSecondValue()
@@ -113,6 +125,8 @@ class Restriction
     }
 
     /**
+     * Setter for second_value
+     *
      * @param string $second_value
      */
     public function setSecondValue($second_value)
@@ -121,6 +135,8 @@ class Restriction
     }
 
     /**
+     * Getter for campaign reference
+     *
      * @return Campaign
      */
     public function getCampaign()
@@ -129,6 +145,8 @@ class Restriction
     }
 
     /**
+     * Setter for campaign reference
+     *
      * @param Campaign $campaign
      */
     public function setCampaign(Campaign $campaign)

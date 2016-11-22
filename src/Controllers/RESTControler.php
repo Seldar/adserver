@@ -11,8 +11,20 @@
 namespace Adserver\Controllers;
 
 
+/**
+ * Class RESTControler
+ *
+ * Class to handle RESTful routing
+ *
+ * @package Adserver\Controllers
+ */
 class RESTControler
 {
+    /**
+     * Routes the request to appropriate Controller/Method
+     *
+     * @return mixed
+     */
     public function route()
     {
 

@@ -11,10 +11,25 @@
 namespace Adserver\Controllers;
 
 
+/**
+ * Class Controller
+ *
+ * Abstract Class to provide entity manager to children
+ *
+ * @package Adserver\Controllers
+ */
 abstract class Controller
 {
+    /**
+     * EntityManager of Doctrine ORM
+     *
+     * @var \Doctrine\ORM\EntityManager
+     */
     public $entityManager;
 
+    /**
+     * Controller constructor.
+     */
     public function __construct()
     {
         $this->entityManager = DoctrineController::get();

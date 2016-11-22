@@ -10,8 +10,22 @@
 
 namespace Adserver\Controllers;
 
+/**
+ * Class CampaignController
+ *
+ * Handles campaign operations
+ *
+ * @package Adserver\Controllers
+ */
 class CampaignController extends Controller
 {
+    /**
+     * Post new campaign resource
+     *
+     * @param array|null $data
+     *
+     * @return string
+     */
     public function post(array $data = null)
     {
         $restrictions = [];
@@ -44,12 +58,27 @@ class CampaignController extends Controller
         return "campaignAdded.tpl.php";
     }
 
+    /**
+     * Put (update) campaign resource
+     *
+     * @param array|null $data
+     *
+     * @return string
+     */
     public function put(array $data = null)
     {
         $this->entityManager->getRepository('Adserver\Entities\Campaign')->edit($data);
         return "campaignEdited.tpl.php";
     }
 
+    /**
+     * Get campaing resource by id
+     *
+     * @param array $input
+     * @param $key
+     *
+     * @return array|string
+     */
     public function get(array $input, $key)
     {
         if ($key) {
@@ -60,6 +89,14 @@ class CampaignController extends Controller
         }
     }
 
+    /**
+     * Returns random valid banner element to publishers
+     *
+     * @param string $contentUnit
+     * @param array|null $sizeRanges
+     *
+     * @return string
+     */
     public function serveBanner($contentUnit, array $sizeRanges = null)
     {
         $banner = $this->entityManager->getRepository('Adserver\Entities\Campaign')->getValidBanners($contentUnit, $sizeRanges);

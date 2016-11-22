@@ -13,8 +13,22 @@ namespace Adserver\Repositories;
 use Doctrine\ORM\EntityRepository;
 use Adserver\Entities\Banner;
 
+/**
+ * Class BannerRepository
+ *
+ * Repository to handle database operations through entities
+ *
+ * @package Adserver\Repositories
+ */
 class BannerRepository extends EntityRepository
 {
+    /**
+     * Set and persist Banner entity in the database
+     *
+     * @param array $data
+     *
+     * @return Banner
+     */
     public function save(array $data)
     {
         $banner = $this->setAll($data);
@@ -52,6 +66,11 @@ class BannerRepository extends EntityRepository
 
     }
 
+    /**
+     * Set and persist Banner entity
+     *
+     * @param array $data
+     */
     public function edit(array $data)
     {
         $banner = $this->_em->getRepository('Adserver\Entities\Banner')->findOneBy(["id" => $data['id']]);
@@ -65,7 +84,15 @@ class BannerRepository extends EntityRepository
         $this->_em->flush();
     }
 
-    public function checkSize(Banner $banner, $sizeRanges)
+    /**
+     * Checks the size of banner against the given size range
+     *
+     * @param Banner $banner
+     * @param array $sizeRanges
+     *
+     * @return bool
+     */
+    public function checkSize(Banner $banner, array $sizeRanges)
     {
         if ($banner->getSizeX() >= $sizeRanges[0] && $banner->getSizeX() <= $sizeRanges[1] && $banner->getSizeY() >= $sizeRanges[2] && $banner->getSizeY() <= $sizeRanges[3]) {
             return true;

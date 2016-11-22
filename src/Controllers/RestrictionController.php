@@ -11,8 +11,20 @@
 namespace Adserver\Controllers;
 
 
+/**
+ * Class RestrictionController
+ *
+ * Handles restriction operations
+ *
+ * @package Adserver\Controllers
+ */
 class RestrictionController extends Controller
 {
+    /**
+     * Post new restriction resource
+     *
+     * @param array $data
+     */
     public function post(array $data)
     {
         $this->entityManager->getRepository('Adserver\Entities\Restriction')->save($data);

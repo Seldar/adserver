@@ -93,6 +93,8 @@ class Campaign
     }
 
     /**
+     * Getter for id
+     *
      * @return int
      */
     public function getId()
@@ -101,6 +103,8 @@ class Campaign
     }
 
     /**
+     * Getter for name
+     *
      * @return string
      */
     public function getName()
@@ -109,6 +113,8 @@ class Campaign
     }
 
     /**
+     * Setter for name
+     *
      * @param string $name
      */
     public function setName($name)
@@ -117,6 +123,8 @@ class Campaign
     }
 
     /**
+     * Getter for status
+     *
      * @return boolean
      */
     public function isStatus()
@@ -125,6 +133,8 @@ class Campaign
     }
 
     /**
+     * Setter for status
+     *
      * @param boolean $status
      */
     public function setStatus($status)
@@ -133,6 +143,8 @@ class Campaign
     }
 
     /**
+     * Getter for goal
+     *
      * @return int
      */
     public function getGoal()
@@ -141,6 +153,8 @@ class Campaign
     }
 
     /**
+     * Setter for goal
+     *
      * @param int $goal
      */
     public function setGoal($goal)
@@ -149,6 +163,8 @@ class Campaign
     }
 
     /**
+     * Getter for impression
+     *
      * @return int
      */
     public function getImpression()
@@ -157,6 +173,8 @@ class Campaign
     }
 
     /**
+     * Setter for impression
+     *
      * @param int $impression
      */
     public function setImpression($impression)
@@ -165,7 +183,9 @@ class Campaign
     }
 
     /**
-     * @return mixed
+     * Getter for Banners reference
+     *
+     * @return Banner[]
      */
     public function getBanners()
     {
@@ -173,6 +193,8 @@ class Campaign
     }
 
     /**
+     * Adder for Banner reference
+     *
      * @param Banner $banner
      */
     public function addBanner(Banner $banner = null)
@@ -184,7 +206,9 @@ class Campaign
     }
 
     /**
-     * @return mixed
+     * Getter for Restriction reference
+     *
+     * @return Restriction[]
      */
     public function getRestrictions()
     {
@@ -192,6 +216,8 @@ class Campaign
     }
 
     /**
+     * Adder for Restriction reference
+     *
      * @param Restriction $restriction
      */
     public function addRestriction(Restriction $restriction = null)
