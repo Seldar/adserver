@@ -60,7 +60,7 @@ class Banner
      *
      * @var string
      *
-     * @column(type="string")
+     * @column(type="string", nullable´´=true)
      **/
     protected $image_file;
 

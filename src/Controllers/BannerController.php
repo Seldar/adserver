@@ -16,15 +16,12 @@ class BannerController extends Controller
         $this->entityManager->getRepository('Adserver\Entities\Banner')->save($data);
     }
 
-    public function get(array $input,$key)
+    public function get(array $input, $key)
     {
-        if($key)
-        {
+        if ($key) {
             $data = $this->entityManager->getRepository('Adserver\Entities\Banner')->findOneBy(["id" => $key]);
-            return ["bannerView.tpl.php",$data];
-        }
-        else
-        {
+            return ["bannerView.tpl.php", $data];
+        } else {
             return "bannerForm.tpl.php";
         }
     }

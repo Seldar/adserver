@@ -44,7 +44,7 @@ class DatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
      *
      * @return DbUnitArrayDataSet
      */
-   final public function getDataSet()
+    final public function getDataSet()
     {
         return new DbUnitArrayDataSet(
             [

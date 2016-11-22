@@ -21,7 +21,7 @@ class BannerRepository extends EntityRepository
 
         $uploads_dir = 'storage/images';
 
-        if ($_FILES["image_file"]["error"] == UPLOAD_ERR_OK) {
+        if (isset($_FILES["image_file"]) && $_FILES["image_file"]["error"] == UPLOAD_ERR_OK) {
             $tmp_name = $_FILES["image_file"]["tmp_name"];
             $name = $_FILES["image_file"]["name"];
             move_uploaded_file($tmp_name, "$uploads_dir/$name");

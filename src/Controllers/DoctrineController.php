@@ -18,7 +18,7 @@ class DoctrineController
     {
         // Create a simple "default" Doctrine ORM configuration for Annotations
         $isDevMode = true;
-        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode);
+        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/src"), $isDevMode);
 
         // database configuration parameters
         $conn = array(

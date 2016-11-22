@@ -8,7 +8,7 @@
  * @author Volkan Ulukut <arthan@gmail.com>
  */
 include "vendor/autoload.php";
-$rootUrl = basename(__DIR__) ;
+$rootUrl = basename(__DIR__);
 $rest = new \Adserver\Controllers\RESTControler();
 $view = $rest->route();
 if (is_array($view)) {

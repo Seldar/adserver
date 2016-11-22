@@ -27,13 +27,13 @@ class CampaignControllerTest extends DatabaseTestCase
                 "goal" => 50,
                 "impression" => 0,
                 "restrictions" =>
-                [
-                    ['type' => 'interval', 'first_value' => '2016-11-18 10:00:00', 'second_value' => '2016-11-20 10:00:00']
-                ],
+                    [
+                        '{"type":"interval", "first_value":"2016-11-18 10:00:00", "second_value":"2016-11-20 10:00:00"}'
+                    ],
                 "banners" =>
-                [
-                    ['name' => "testName", 'caption' => "testCaption", "click_url" => "testClickUrl", "image_file" => "testImageFile", "size_x" => 100, "size_y" => 100]
-                ]
+                    [
+                        '{"name":"testName", "caption":"testCaption", "click_url":"testClickUrl", "size_x":100, "size_y":100}'
+                    ]
             ]
         );
 
