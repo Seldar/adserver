@@ -12,8 +12,6 @@ namespace Adserver\Tests;
 
 
 use Adserver\Controllers\CampaignController;
-use Adserver\Entities\Banner;
-use Adserver\Entities\Restriction;
 
 class CampaignControllerTest extends DatabaseTestCase
 {
@@ -41,6 +39,6 @@ class CampaignControllerTest extends DatabaseTestCase
 
         $this->assertEquals(3, $this->getConnection()->getRowCount('campaigns'));
         $this->assertEquals(3, $this->getConnection()->getRowCount('banners'));
-        $this->assertEquals(3, $this->getConnection()->getRowCount('restrictions'));
+        $this->assertEquals(5, $this->getConnection()->getRowCount('restrictions'));
     }
 }

@@ -19,8 +19,14 @@ class RESTControler
         // get the HTTP method, path and body of the request
         $method = $_SERVER['REQUEST_METHOD'];
         $request = explode('/', trim($_GET['path'],'/'));
-        //$input = $_POST;//json_decode(file_get_contents('php://input'),true);
-        parse_str(file_get_contents("php://input"),$input);
+        if($_POST)
+        {
+            $input = $_POST;
+        }
+        else
+        {
+            parse_str(file_get_contents("php://input"),$input);
+        }
         // retrieve the table and key from the path
         $table = preg_replace('/[^a-z0-9_]+/i','',array_shift($request));
         $key = array_shift($request)+0;

@@ -98,16 +98,30 @@ class DatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
                     [
                         'id' => 2,
                         'type' => 'time-targeting',
-                        'first_value' => 1,
-                        'second_value' => 100,
+                        'first_value' => "1:11-13,3:0-24,4:10-19",
+                        'second_value' => "",
+                        'campaign_id' => 1
+                    ],
+                    [
+                        'id' => 3,
+                        'type' => 'cookie-targeting',
+                        'first_value' => "ad-req-cookie",
+                        'second_value' => 1,
+                        'campaign_id' => 1
+                    ],
+                    [
+                        'id' => 4,
+                        'type' => 'referrer-targeting',
+                        'first_value' => "http://localhost/adserver/campaigns/1,http://example.com/test.php",
+                        'second_value' => "allowhost.com",
                         'campaign_id' => 1
                     ]
                 ]
             ]
         );
     }
-    protected function getTearDownOperation()
+    /*protected function getTearDownOperation()
     {
         return \PHPUnit_Extensions_Database_Operation_Factory::TRUNCATE();
-    }
+    }*/
 }

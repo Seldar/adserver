@@ -18,6 +18,6 @@ class RestrictionControllerTest extends DatabaseTestCase
     {
         $controller = new RestrictionController();
         $controller->post(['type' => 'interval', 'first_value' => '2016-11-18 10:00:00', 'second_value' => '2016-11-20 10:00:00']);
-        $this->assertEquals(3, $this->getConnection()->getRowCount('restrictions'));
+        $this->assertEquals(5, $this->getConnection()->getRowCount('restrictions'));
     }
 }

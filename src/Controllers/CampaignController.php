@@ -16,7 +16,9 @@ class CampaignController extends Controller
     {
         $restrictions = [];
         $banners = [];
+
         foreach ($data['restrictions'] as $restriction) {
+            $restriction = json_decode($restriction,true);
             $restrictions[] = $this->entityManager->getRepository('Adserver\Entities\Restriction')->save(
                 [
                     "type" => $restriction['type'],
@@ -27,12 +29,12 @@ class CampaignController extends Controller
         }
 
         foreach ($data['banners'] as $banner) {
+            $banner = json_decode($banner,true);
             $banners[] = $this->entityManager->getRepository('Adserver\Entities\Banner')->save(
                 [
                     "name" => $banner['name'],
                     "caption" => $banner['caption'],
                     "click_url" => $banner['click_url'],
-                    "image_file" => $banner['image_file'],
                     "size_x" => $banner['size_x'],
                     "size_y" => $banner['size_y']
                 ]
@@ -59,5 +61,12 @@ class CampaignController extends Controller
         {
             return "campaignForm.tpl.php";
         }
+    }
+
+    public function serveBanner($contentUnit, array $sizeRanges = null)
+    {
+        $banner = $this->entityManager->getRepository('Adserver\Entities\Campaign')->getValidBanners($contentUnit,$sizeRanges);
+        return $banner;
+
     }
 }

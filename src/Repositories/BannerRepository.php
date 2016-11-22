@@ -18,6 +18,16 @@ class BannerRepository extends EntityRepository
     public function save(array $data)
     {
         $banner = $this->setAll($data);
+
+        $uploads_dir = 'storage/images';
+
+        if ($_FILES["image_file"]["error"] == UPLOAD_ERR_OK) {
+            $tmp_name = $_FILES["image_file"]["tmp_name"];
+            $name = $_FILES["image_file"]["name"];
+            move_uploaded_file($tmp_name, "$uploads_dir/$name");
+            $banner->setImageFile($name);
+        }
+
         $this->_em->persist($banner);
         $this->_em->flush();
         return $banner;
@@ -36,7 +46,6 @@ class BannerRepository extends EntityRepository
         $banner->setName($data["name"]);
         $banner->setCaption($data["caption"]);
         $banner->setClickUrl($data["click_url"]);
-        $banner->setImageFile($data["image_file"]);
         $banner->setSizeX($data["size_x"]);
         $banner->setSizeY($data["size_y"]);
         return $banner;
@@ -55,4 +64,13 @@ class BannerRepository extends EntityRepository
         $this->_em->persist($banner);
         $this->_em->flush();
     }
+
+    public function checkSize(Banner $banner, $sizeRanges)
+    {
+        if ($banner->getSizeX() >= $sizeRanges[0] && $banner->getSizeX() <= $sizeRanges[1] && $banner->getSizeY() >= $sizeRanges[2] && $banner->getSizeY() <= $sizeRanges[3]) {
+            return true;
+        }
+        return false;
+    }
+
 }

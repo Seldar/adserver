@@ -16,5 +16,7 @@ Banners: <?php foreach ($data->getBanners() as $banner) {
 Restrictions: <?php foreach ($data->getRestrictions() as $restriction) {
     echo $restriction->getType() . " - " . $restriction->getFirstValue() . " - " . $restriction->getSecondValue() . " | ";
 } ?><br>
+
+Banner Test: <a href = '/<?php echo $rootUrl; ?>/publisher.html'>Click here</a>
 </body>
 </html>

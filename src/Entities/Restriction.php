@@ -42,7 +42,7 @@ class Restriction
      *
      * @var string
      *
-     * @column(type="string")
+     * @column(type="text")
      **/
     protected $first_value;
 
@@ -51,7 +51,7 @@ class Restriction
      *
      * @var string
      *
-     * @column(type="string")
+     * @column(type="text")
      **/
     protected $second_value;
 
