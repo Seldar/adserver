@@ -90,6 +90,19 @@ class CampaignController extends Controller
     }
 
     /**
+     * Delete campaign resource along with all related resources
+     *
+     * @param int $key
+     *
+     * @return string
+     */
+    public function delete($key)
+    {
+        $this->entityManager->getRepository('Adserver\Entities\Campaign')->delete($key);
+        return "campaignDeleted.tpl.php";
+    }
+
+    /**
      * Returns random valid banner element to publishers
      *
      * @param string $contentUnit

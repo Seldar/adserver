@@ -85,6 +85,18 @@ class CampaignRepository extends EntityRepository
     }
 
     /**
+     * Removes the entity from database
+     *
+     * @param int $key
+     */
+    public function delete($key)
+    {
+        $campaign = $this->find($key);
+        $this->_em->remove($campaign);
+        $this->_em->flush();
+    }
+
+    /**
      * Get the valid banners from valid campaigns
      *
      * @param string $contentUnit

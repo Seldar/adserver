@@ -26,4 +26,18 @@ class BannerControllerTest extends DatabaseTestCase
         $result = $controller->put(["id" => 1, "name" => "Test Banner 3"]);
         $this->assertInternalType("string", $result);
     }
+
+    public function testDelete()
+    {
+        $controller = new BannerController();
+        $result = $controller->delete(1);
+        $this->assertInternalType("string", $result);
+    }
+
+    public function testGet()
+    {
+        $controller = new BannerController();
+        $result = $controller->get([],1);
+        $this->assertInternalType("array", $result);
+    }
 }

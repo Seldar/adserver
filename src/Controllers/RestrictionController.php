@@ -40,7 +40,20 @@ class RestrictionController extends Controller
     public function put(array $data = null)
     {
         $this->entityManager->getRepository('Adserver\Entities\Restriction')->edit($data);
-        return "bannerEdited.tpl.php";
+        return "restrictionEdited.tpl.php";
+    }
+
+    /**
+     * Delete banner resource
+     *
+     * @param int $key
+     *
+     * @return string
+     */
+    public function delete($key)
+    {
+        $this->entityManager->getRepository('Adserver\Entities\Restriction')->delete($key);
+        return "restrictionDeleted.tpl.php";
     }
 
 }

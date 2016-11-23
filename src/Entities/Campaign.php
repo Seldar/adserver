@@ -70,7 +70,7 @@ class Campaign
      *
      * @var Banner[]
      *
-     * @oneToMany(targetEntity="Banner", mappedBy="campaign",cascade={"persist"})
+     * @oneToMany(targetEntity="Banner", mappedBy="campaign",cascade={"remove"})
      **/
     protected $banners;
 
@@ -79,7 +79,7 @@ class Campaign
      *
      * @var Restriction[]
      *
-     * @oneToMany(targetEntity="Restriction", mappedBy="campaign",cascade={"persist"})
+     * @oneToMany(targetEntity="Restriction", mappedBy="campaign",cascade={"remove"})
      **/
     protected $restrictions;
 

@@ -49,6 +49,20 @@ class CampaignControllerTest extends DatabaseTestCase
         $this->assertInternalType("string", $result);
     }
 
+    public function testDelete()
+    {
+        $controller = new CampaignController();
+        $result = $controller->delete(1);
+        $this->assertInternalType("string", $result);
+    }
+
+    public function testGet()
+    {
+        $controller = new CampaignController();
+        $result = $controller->get([],1);
+        $this->assertInternalType("array", $result);
+    }
+
     public function testServeBanner()
     {
         $controller = new CampaignController();

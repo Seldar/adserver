@@ -77,6 +77,18 @@ class RestrictionRepository extends EntityRepository
     }
 
     /**
+     * Removes the entity from database
+     *
+     * @param int $key
+     */
+    public function delete($key)
+    {
+        $restriction = $this->find($key);
+        $this->_em->remove($restriction);
+        $this->_em->flush();
+    }
+
+    /**
      * Evaluate if the given restriction is passed
      *
      * @param Restriction $restriction

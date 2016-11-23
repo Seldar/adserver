@@ -42,6 +42,19 @@ class BannerController extends Controller
     }
 
     /**
+     * Delete banner resource
+     *
+     * @param int $key
+     *
+     * @return string
+     */
+    public function delete($key)
+    {
+        $this->entityManager->getRepository('Adserver\Entities\Banner')->delete($key);
+        return "bannerDeleted.tpl.php";
+    }
+
+    /**
      * Get banner resource by id
      *
      * @param array $input

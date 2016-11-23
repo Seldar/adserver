@@ -85,6 +85,18 @@ class BannerRepository extends EntityRepository
     }
 
     /**
+     * Removes the entity from database
+     *
+     * @param int $key
+     */
+    public function delete($key)
+    {
+        $banner = $this->find($key);
+        $this->_em->remove($banner);
+        $this->_em->flush();
+    }
+
+    /**
      * Checks the size of banner against the given size range
      *
      * @param Banner $banner
