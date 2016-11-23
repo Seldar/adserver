@@ -72,7 +72,7 @@ class CampaignController extends Controller
     }
 
     /**
-     * Get campaing resource by id
+     * Get campaign resource by id
      *
      * @param array $input
      * @param $key

@@ -14,17 +14,19 @@ use PHPUnit_Extensions_Database_DataSet_AbstractDataSet;
 use PHPUnit_Extensions_Database_DataSet_DefaultTableMetaData;
 use PHPUnit_Extensions_Database_DataSet_DefaultTable;
 use PHPUnit_Extensions_Database_DataSet_DefaultTableIterator;
-use InvalidArgumentException;
-
 
 class DbUnitArrayDataSet extends PHPUnit_Extensions_Database_DataSet_AbstractDataSet
 {
     /**
+     * Tables array
+     *
      * @var array
      */
     protected $tables = [];
 
     /**
+     * Constructer for DbUnitArrayDataSet
+     *
      * @param array $data
      */
     public function __construct(array $data)
