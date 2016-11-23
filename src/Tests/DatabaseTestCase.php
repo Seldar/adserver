@@ -91,14 +91,14 @@ class DatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
                     [
                         'id' => 1,
                         'type' => 'interval',
-                        'first_value' => '2016-11-18 18:00',
-                        'second_value' => '2016-11-22 18:00',
+                        'first_value' => date("Y-m-d H:i:s", strtotime("-1 day")),
+                        'second_value' => date("Y-m-d H:i:s", strtotime("+1 day")),
                         'campaign_id' => 1
                     ],
                     [
                         'id' => 2,
                         'type' => 'time-targeting',
-                        'first_value' => "1:11-13,3:0-24,4:10-19",
+                        'first_value' => "1:11-13,3:0-24,4:0-19,5:0-24,6:0-19,7:0-19",
                         'second_value' => "",
                         'campaign_id' => 1
                     ],
@@ -113,7 +113,7 @@ class DatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
                         'id' => 4,
                         'type' => 'referrer-targeting',
                         'first_value' => "http://localhost/adserver/campaigns/1,http://example.com/test.php",
-                        'second_value' => "allowhost.com",
+                        'second_value' => "allowhost.com,localhost",
                         'campaign_id' => 1
                     ]
                 ]

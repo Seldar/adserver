@@ -18,7 +18,7 @@ namespace Adserver\Controllers;
  *
  * @package Adserver\Controllers
  */
-class RESTControler
+class RESTController
 {
     /**
      * Routes the request to appropriate Controller/Method

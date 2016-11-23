@@ -9,7 +9,7 @@
  */
 include "vendor/autoload.php";
 $rootUrl = basename(__DIR__);
-$rest = new \Adserver\Controllers\RESTControler();
+$rest = new \Adserver\Controllers\RESTController();
 $view = $rest->route();
 if (is_array($view)) {
     $data = $view[1];

@@ -186,7 +186,7 @@ class CampaignRepository extends EntityRepository
     public function createHTML(Banner $banner, $contentUnit)
     {
         return '<a href="' . $banner->getClickUrl() . '">
-                        <img style="width:' . $banner->getSizeX() . 'px;height:' . $banner->getSizeY() . 'px;´´" src="storage/images/' . $banner->getImageFile() . '" />
+                        <img style="width:' . $banner->getSizeX() . 'px;height:' . $banner->getSizeY() . 'px;" src="storage/images/' . $banner->getImageFile() . '" />
                         <div class="caption">' . $banner->getCaption() . '</div>
                 </a>';
     }

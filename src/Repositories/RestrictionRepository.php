@@ -72,7 +72,10 @@ class RestrictionRepository extends EntityRepository
     }
 
     /**
+     * Evaluate if the given restriction is passed
+     *
      * @param Restriction $restriction
+     *
      * @return bool
      */
     public function evaluate(Restriction $restriction)

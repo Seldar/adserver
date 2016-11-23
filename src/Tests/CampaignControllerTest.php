@@ -41,4 +41,21 @@ class CampaignControllerTest extends DatabaseTestCase
         $this->assertEquals(3, $this->getConnection()->getRowCount('banners'));
         $this->assertEquals(5, $this->getConnection()->getRowCount('restrictions'));
     }
+
+    public function testPut()
+    {
+        $controller = new CampaignController();
+        $result = $controller->put(["id" => 1, "status" => 0]);
+        $this->assertInternalType("string", $result);
+    }
+
+    public function testServeBanner()
+    {
+        $controller = new CampaignController();
+        $_COOKIE["ad-req-cookie"] = 1;
+        $_SERVER['HTTP_REFERER'] = "http://localhost/adserver/";
+        $result = $controller->serveBanner("contentUnit", [0, 500, 0, 500]);
+
+        $this->assertRegExp('/a href.*>.*<img.*>.*<div.*caption.*<.*>/is', $result);
+    }
 }
