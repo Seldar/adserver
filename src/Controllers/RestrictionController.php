@@ -29,4 +29,18 @@ class RestrictionController extends Controller
     {
         $this->entityManager->getRepository('Adserver\Entities\Restriction')->save($data);
     }
+
+    /**
+     * Put (update) restriction resource
+     *
+     * @param array|null $data
+     *
+     * @return string
+     */
+    public function put(array $data = null)
+    {
+        $this->entityManager->getRepository('Adserver\Entities\Restriction')->edit($data);
+        return "bannerEdited.tpl.php";
+    }
+
 }

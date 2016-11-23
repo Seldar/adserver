@@ -19,4 +19,11 @@ class BannerControllerTest extends DatabaseTestCase
         $controller->post(['name' => "testName", 'caption' => "testCaption", "click_url" => "testClickUrl", "image_file" => "testImageFile", "size_x" => 100, "size_y" => 100]);
         $this->assertEquals(3, $this->getConnection()->getRowCount('banners'));
     }
+
+    public function testPut()
+    {
+        $controller = new BannerController();
+        $result = $controller->put(["id" => 1, "name" => "Test Banner 3"]);
+        $this->assertInternalType("string", $result);
+    }
 }

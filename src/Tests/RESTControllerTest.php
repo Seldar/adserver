@@ -51,5 +51,11 @@ class RESTControllerTest extends DatabaseTestCase
         $this->assertInternalType('array', $result);
         $this->assertTrue(count($result) == 2);
         $this->assertInstanceOf('Adserver\Entities\Banner',$result[1]);
+
+        $_SERVER['REQUEST_METHOD'] = "GET";
+        $_GET['path'] = "campaigns";
+        $controller = new RESTController();
+        $result = $controller->route();
+        $this->assertInternalType('string', $result);
     }
 }

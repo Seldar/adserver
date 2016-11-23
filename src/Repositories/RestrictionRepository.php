@@ -62,6 +62,11 @@ class RestrictionRepository extends EntityRepository
     {
         $restriction = $this->_em->getRepository('Adserver\Entities\Restriction')->findOneBy(["id" => $data['id']]);
         foreach ($data as $key => $value) {
+            $keySplit = explode("_",$key);
+            array_walk($keySplit,function($val,$i) {
+                $keySplit[$i] = ucfirst($val);
+            });
+            $key = implode("",$keySplit);
             $method = "set" . ucfirst($key);
             if ($key != "id") {
                 $restriction->$method($value);

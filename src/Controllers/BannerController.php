@@ -29,6 +29,19 @@ class BannerController extends Controller
     }
 
     /**
+     * Put (update) banner resource
+     *
+     * @param array|null $data
+     *
+     * @return string
+     */
+    public function put(array $data = null)
+    {
+        $this->entityManager->getRepository('Adserver\Entities\Banner')->edit($data);
+        return "bannerEdited.tpl.php";
+    }
+
+    /**
      * Get banner resource by id
      *
      * @param array $input
